@@ -1,15 +1,11 @@
 package com.tngtech.jgiven.integration.spring.test.proxy;
 
-import com.tngtech.jgiven.annotation.Pending;
-import com.tngtech.jgiven.integration.spring.SpringRuleScenarioTest;
-import com.tngtech.jgiven.integration.spring.SpringScenarioTest;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.tngtech.jgiven.integration.spring.SpringRuleScenarioTest;
 
 @ContextConfiguration( classes = ProxyTestConfig.class )
 public class SpringProxyTest extends SpringRuleScenarioTest<GivenTestStageWithAspect, WhenTestStageWithAspect, ThenTestStage> {

@@ -1,13 +1,11 @@
 package com.tngtech.jgiven.integration.spring.test.proxy;
 
-import com.tngtech.jgiven.annotation.ExpectedScenarioState;
-import com.tngtech.jgiven.integration.spring.JGivenStage;
-import com.tngtech.jgiven.integration.spring.test.proxy.HelloWorldService;
-import com.tngtech.jgiven.integration.spring.test.proxy.MessageToTheWorld;
-import com.tngtech.jgiven.integration.spring.test.proxy.TestAspect;
+import static org.assertj.core.api.Assertions.assertThat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import com.tngtech.jgiven.annotation.ExpectedScenarioState;
+import com.tngtech.jgiven.integration.spring.JGivenStage;
 
 /**
  * This is referred in {@link TestAspect}

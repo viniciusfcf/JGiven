@@ -1,11 +1,8 @@
 package com.tngtech.jgiven.integration.spring.test.proxy;
 
 import com.tngtech.jgiven.integration.spring.SpringRuleScenarioTest;
-import com.tngtech.jgiven.integration.spring.SpringScenarioTest;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration(classes = ProxyTestConfig.class)
 public class SpringTransactionalTest extends SpringRuleScenarioTest<GivenTestStageWithTransactional, WhenTestStageWithAspect, ThenTestStage> {

@@ -8,7 +8,6 @@ import org.springframework.test.context.junit4.rules.SpringClassRule;
 import org.springframework.test.context.junit4.rules.SpringMethodRule;
 
 import com.tngtech.jgiven.base.SimpleScenarioTestBase;
-import com.tngtech.jgiven.impl.ScenarioExecutor;
 
 /**
  * Internal class necessary in order to provide the correct ordering of the {@link org.junit.rules.MethodRule}s. Must be public because of

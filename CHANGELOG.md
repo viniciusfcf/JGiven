@@ -14,6 +14,7 @@
 * Calling stage methods annotated with `@DoNotIntercept` or declared within `java.lang.Object` will not trigger
 a stage change anymore [#385](https://github.com/TNG/JGiven/pull/385)
 * The Guava dependency changed to v27.1-jre. This might lead to problems in case your project also depends on Guava
+* Spring: removed deprecated SpringCanWire
 
 ## Fixed Issues
 

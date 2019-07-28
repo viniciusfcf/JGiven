@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.tngtech.jgiven.annotation.ExpectedScenarioState;
 import com.tngtech.jgiven.integration.spring.JGivenStage;
-import com.tngtech.jgiven.integration.spring.test.proxy.MessageToTheWorld;
 
 @JGivenStage
 public class ThenTestStage {

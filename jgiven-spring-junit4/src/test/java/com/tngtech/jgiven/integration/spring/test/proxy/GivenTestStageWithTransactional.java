@@ -1,16 +1,16 @@
 package com.tngtech.jgiven.integration.spring.test.proxy;
 
-import com.tngtech.jgiven.annotation.ProvidedScenarioState;
-import com.tngtech.jgiven.integration.spring.JGivenStage;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * This is referred in {@link TestAspect}
- */
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.tngtech.jgiven.annotation.ProvidedScenarioState;
+import com.tngtech.jgiven.integration.spring.JGivenStage;
+
 @JGivenStage
-public class GivenTestStageWithAspect {
+@Transactional
+public class GivenTestStageWithTransactional {
 
     @Autowired
     private HelloWorldService helloWorldService;
@@ -23,4 +23,5 @@ public class GivenTestStageWithAspect {
 
         message = helloWorldService.sayHello();
     }
+
 }
