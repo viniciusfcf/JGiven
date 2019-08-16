@@ -14,10 +14,9 @@ public class Config {
     private static final Logger log = LoggerFactory.getLogger( Config.class );
     private static final Config INSTANCE = new Config();
 
-    private static final String TRUE = "true";
-    private static final String FALSE = "false";
     private static final String AUTO = "auto";
     private static final String JGIVEN_REPORT_ENABLED = "jgiven.report.enabled";
+    private static final String JGIVEN_APPEND_REPORT_ENABLED = "jgiven.append.report.enabled";
     public static final String JGIVEN_REPORT_DIR = "jgiven.report.dir";
     private static final String JGIVEN_REPORT_TEXT = "jgiven.report.text";
     private static final String JGIVEN_REPORT_TEXT_COLOR = "jgiven.report.text.color";
@@ -51,19 +50,27 @@ public class Config {
     }
 
     public boolean isReportEnabled() {
-        return TRUE.equalsIgnoreCase( System.getProperty( JGIVEN_REPORT_ENABLED, TRUE ) );
+        return Boolean.valueOf(System.getProperty( JGIVEN_REPORT_ENABLED, Boolean.TRUE.toString() ) );
     }
 
     public void setReportEnabled( boolean enabled ) {
         System.setProperty( JGIVEN_REPORT_ENABLED, "" + enabled );
     }
 
+    public boolean isAppendReportEnabled() {
+        return Boolean.valueOf(System.getProperty( JGIVEN_APPEND_REPORT_ENABLED, Boolean.TRUE.toString() ) );
+    }
+
+    public void setAppendReportEnabled( boolean enabled ) {
+        System.setProperty( JGIVEN_APPEND_REPORT_ENABLED, "" + enabled );
+    }
+    
     public ConfigValue textColorEnabled() {
         return ConfigValue.fromString( System.getProperty( JGIVEN_REPORT_TEXT_COLOR, AUTO ) );
     }
 
     public boolean textReport() {
-        return TRUE.equalsIgnoreCase( System.getProperty( JGIVEN_REPORT_TEXT, TRUE ) );
+        return Boolean.valueOf( System.getProperty( JGIVEN_REPORT_TEXT, Boolean.TRUE.toString() ) );
     }
 
     public void setTextReport( boolean b ) {
@@ -71,7 +78,7 @@ public class Config {
     }
 
     public boolean filterStackTrace() {
-        return TRUE.equalsIgnoreCase( System.getProperty( JGIVEN_FILTER_STACK_TRACE, TRUE ) );
+        return Boolean.valueOf( System.getProperty( JGIVEN_FILTER_STACK_TRACE, Boolean.TRUE.toString() ) );
     }
 
     public void setReportDir(File reportDir) {
