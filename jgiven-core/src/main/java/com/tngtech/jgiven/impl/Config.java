@@ -29,13 +29,14 @@ public class Config {
     public Optional<File> getReportDir() {
         String reportDirName = System.getProperty( JGIVEN_REPORT_DIR );
         if( reportDirName == null ) {
-            if( System.getProperty( "surefire.test.class.path" ) != null ) {
-                reportDirName = "target/jgiven-reports/json";
-                log.info( JGIVEN_REPORT_DIR + " not set, but detected surefire plugin, generating reports to " + reportDirName );
-            } else {
-                reportDirName = "jgiven-reports";
-                log.debug( JGIVEN_REPORT_DIR + " not set, using default value jgiven-reports" );
-            }
+        	reportDirName = "target/jgiven-reports/json";
+//            if( System.getProperty( "surefire.test.class.path" ) != null ) {
+//                reportDirName = "target/jgiven-reports/json";
+//                log.info( JGIVEN_REPORT_DIR + " not set, but detected surefire plugin, generating reports to " + reportDirName );
+//            } else {
+//                reportDirName = "jgiven-reports";
+//                log.debug( JGIVEN_REPORT_DIR + " not set, using default value jgiven-reports" );
+//            }
         }
 
         File reportDir = new File( reportDirName );

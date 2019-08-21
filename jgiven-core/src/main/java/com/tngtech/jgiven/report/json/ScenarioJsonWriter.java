@@ -1,7 +1,10 @@
 package com.tngtech.jgiven.report.json;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,9 +29,14 @@ public class ScenarioJsonWriter {
         String json = toString();
         try {
         	if( Config.config().isAppendReportEnabled() && file.exists() ) {
-            	ReportModel fromJson = gson.fromJson(json, ReportModel.class);
-            	model.getScenarios().stream().forEach(scenario -> fromJson.addScenarioModel(scenario));
-            	Files.asCharSink(file, Charsets.UTF_8).write(fromJson.toString());
+        		try (BufferedReader myBuffer = new BufferedReader(new InputStreamReader( new FileInputStream(file), Charsets.UTF_8))) {
+        			ReportModel existingJson = gson.fromJson(myBuffer, ReportModel.class);
+        			//verificar se algum dos cenarios eh da mesma classe, 
+        			//se for, adiciona nos ScenarioCaseModal e incrementa o caseNr
+        			//se nao, adiciona o scenario do modo q esta aqui abaixo
+        			model.getScenarios().stream().forEach(scenario -> existingJson.addScenarioModel(scenario));
+        			Files.asCharSink(file, Charsets.UTF_8).write(gson.toJson(existingJson));
+        		}
             } else {
         		Files.asCharSink(file, Charsets.UTF_8).write(json);
             }
